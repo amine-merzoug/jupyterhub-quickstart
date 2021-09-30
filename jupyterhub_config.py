@@ -275,3 +275,5 @@ environ_config_file = '/opt/app-root/configs/jupyterhub_config.py'
 if os.path.exists(environ_config_file):
     with open(environ_config_file) as fp:
         exec(compile(fp.read(), environ_config_file, 'exec'), globals())
+
+c.KubeSpawner.environment = { 'JUPYTER_ENABLE_LAB': 'true' }
