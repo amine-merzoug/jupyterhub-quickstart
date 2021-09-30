@@ -163,6 +163,8 @@ c.KubeSpawner.port = 8080
 
 c.KubeSpawner.common_labels = { 'app': application_name }
 
+c.KubeSpawner.environment = { 'JUPYTER_ENABLE_LAB': 'true' }
+
 c.KubeSpawner.uid = os.getuid()
 c.KubeSpawner.fs_gid = os.getuid()
 
@@ -275,5 +277,3 @@ environ_config_file = '/opt/app-root/configs/jupyterhub_config.py'
 if os.path.exists(environ_config_file):
     with open(environ_config_file) as fp:
         exec(compile(fp.read(), environ_config_file, 'exec'), globals())
-
-c.KubeSpawner.environment = { 'JUPYTER_ENABLE_LAB': 'true' }
